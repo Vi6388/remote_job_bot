@@ -1,4 +1,4 @@
-# Juan Complete Job Platform
+# A Complete Job Platform
 
 A **single Streamlit application** containing the existing Remote Job Bot V4 and Job Application Studio V2.1, now linked by the latest bot CSV. No previous ZIP is required.
 
@@ -6,7 +6,7 @@ A **single Streamlit application** containing the existing Remote Job Bot V4 and
 
 1. Extract the ZIP to a writable directory.
 2. Install Python 3.10+ and ensure `py` works in PowerShell.
-3. Open PowerShell inside the extracted `Juan_Complete_Job_Platform` directory.
+3. Open PowerShell inside the extracted `A_Complete_Job_Platform` directory.
 4. Run:
 
 ```powershell
@@ -23,7 +23,7 @@ Open http://localhost:8501 if the browser does not open automatically.
 2. Open **Application Studio**. It automatically detects the latest bot CSV; you can instead upload a CSV manually.
 3. Upload your **verified, structured master resume JSON** (use `master_resume.example.json` as a format reference). Do not assume the example resume describes your actual employment history.
 4. Enter an OpenAI API key (or set `OPENAI_API_KEY` in your environment). Choose a supported model, select jobs, paste full descriptions when a job site blocks extraction, and generate.
-5. Download `application_packages.zip`. Each successfully processed job gets its own folder with `Juan_Paolo_Ramos_resume.docx`, `Juan_Paolo_Ramos_resume.pdf`, `Juan_Paolo_Ramos_cover_letter.docx`, and `job_description.txt`.
+5. Download `application_packages.zip`. Each successfully processed job gets its own folder with `A_resume.docx`, `A_resume.pdf`, `A_cover_letter.docx`, and `job_description.txt`.
 
 ## Constraints and safety
 
