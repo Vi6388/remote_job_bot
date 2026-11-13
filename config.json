@@ -1,0 +1,9 @@
+{
+  "target_daily_leads": 100,
+  "max_age_days": 14,
+  "keywords": ["full stack", "fullstack", "frontend", "front end", "backend", "back end", "software engineer", "react", "typescript", "node.js", "python", "next.js", "ai engineer", "llm engineer", "machine learning engineer"],
+  "priority_countries": ["australia", "united kingdom", "uk", "germany", "netherlands", "sweden", "denmark", "norway", "finland", "ireland", "france", "spain", "portugal", "poland", "estonia", "switzerland", "austria", "belgium"],
+  "blocked_location_phrases": ["us only", "usa only", "united states only", "canada only", "must reside in the us", "must be based in the us", "remote - us", "remote, us", "europe only", "eu only", "uk only", "australia only", "must reside in australia", "must be based in australia", "within the eu", "within europe"],
+  "greenhouse_boards": [],
+  "ashby_boards": []
+}
