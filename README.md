@@ -1,18 +1,40 @@
-# Remote Job Bot V4 — verified roles + 80/20 prioritization
+# Juan Complete Job Platform
 
-This is an update of V3. Install dependencies with `py -m pip install -r requirements.txt`, then run `py job_bot.py`.
+A **single Streamlit application** containing the existing Remote Job Bot V4 and Job Application Studio V2.1, now linked by the latest bot CSV. No previous ZIP is required.
 
-## Search configuration
-- **Primary**: 80% software development (full stack, frontend, backend, web/software development, Shopify, eCommerce, Bubble).
-- **Secondary**: 20% AI training, coding evaluation, annotation, labeling, categorization.
-- Quotas are *targets* for up to 100 listings. When one group has too few matches, the other fills remaining slots. It does not invent jobs.
-- Specific stacks such as Java, Spring Boot, NestJS, Prisma, React, Node.js, and Python are **not claimed as verified skills**. Broad full-stack listings may mention them, but no stack-specific keyword targeting is activated until you confirm them.
-- 7 years full stack, 5 years Shopify/eCommerce, 3 years Bubble, and 2 months annotation/AI evaluation are used as profile metadata; no claim is made about skill level in other technologies.
-- Existing job sources and excluded Lemon.io remain unchanged.
-- Job eligibility remains **likely eligible** or **needs verification**, not guaranteed. Set `strict_eligibility_only` to true to exclude unverified listings.
+## Windows installation
 
-## Export
-`output/jobs_YYYY-MM-DD.csv` includes exactly `Company Name`, `Role`, `Compensation`, `Job Link`. CSV opens in Excel. Compensation is not invented.
+1. Extract the ZIP to a writable directory.
+2. Install Python 3.10+ and ensure `py` works in PowerShell.
+3. Open PowerShell inside the extracted `Juan_Complete_Job_Platform` directory.
+4. Run:
 
-## Important limitations
-The 80/20 split is applied to the *exported top 100*, not enforced as a minimum number of listings. The source APIs may return fewer jobs. Some job-board APIs can change or fail; the script logs source errors. A role title match does not establish that the employer accepts Philippines-based applicants; review before applying. This release does not add new source APIs.
+```powershell
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run app.py
+```
+
+Open http://localhost:8501 if the browser does not open automatically.
+
+## Workflow
+
+1. Open **Job Discovery** in the Streamlit sidebar. Click **Find jobs now**. It fetches public remote-job APIs and writes `bot/output/jobs_YYYY-MM-DD.csv` with exactly: `Company Name`, `Role`, `Compensation`, `Job Link`.
+2. Open **Application Studio**. It automatically detects the latest bot CSV; you can instead upload a CSV manually.
+3. Upload your **verified, structured master resume JSON** (use `master_resume.example.json` as a format reference). Do not assume the example resume describes your actual employment history.
+4. Enter an OpenAI API key (or set `OPENAI_API_KEY` in your environment). Choose a supported model, select jobs, paste full descriptions when a job site blocks extraction, and generate.
+5. Download `application_packages.zip`. Each successfully processed job gets its own folder with `Juan_Paolo_Ramos_resume.docx`, `Juan_Paolo_Ramos_resume.pdf`, `Juan_Paolo_Ramos_cover_letter.docx`, and `job_description.txt`.
+
+## Constraints and safety
+
+- Bot target: **100 daily leads**, **80% software / 20% AI**; targets are not guaranteed. Job descriptions may omit or ambiguously describe work authorization. **Check that the employer explicitly accepts Philippines-based remote applicants.** The bot excludes obvious regional restrictions but cannot reliably prove eligibility.
+- The bot searches only job titles matching verified role families (full stack, web/software development, Shopify/eCommerce, Bubble, coding AI evaluation, annotation). It does **not** assume React, Node.js, Java, Spring Boot, Prisma, etc. You may edit `bot/config.json` after verifying additional skills.
+- Sources: Remotive, Arbeitnow, RemoteOK, Jobicy, Himalayas and optionally configured public company boards. The application does **not** scrape all previously discussed job websites.
+- The Studio calls OpenAI only when you click Generate. API usage is billed separately. The Studio does not automatically submit job applications.
+- Review AI-produced claims and job descriptions. The code preserves structured employment company, title and dates, but **human verification remains essential**.
+- Run locally only; do not expose the Streamlit service publicly. Job page fetching is not hardened for hostile multi-user deployments.
+- `bot/jobs.sqlite3` stores past discovered postings locally. The ZIP does not include real job data or a completed personal resume.
+
+## Offline checks
+
+Run `py -m pytest tests -q` to check configuration, filename conventions, and CSV normalization without contacting job websites or OpenAI.
