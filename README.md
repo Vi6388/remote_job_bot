@@ -1,4 +1,4 @@
-# A Complete Job Platform
+# Juan Complete Job Platform
 
 A **single Streamlit application** containing the existing Remote Job Bot V4 and Job Application Studio V2.1, now linked by the latest bot CSV. No previous ZIP is required.
 
@@ -6,7 +6,7 @@ A **single Streamlit application** containing the existing Remote Job Bot V4 and
 
 1. Extract the ZIP to a writable directory.
 2. Install Python 3.10+ and ensure `py` works in PowerShell.
-3. Open PowerShell inside the extracted `A_Complete_Job_Platform` directory.
+3. Open PowerShell inside the extracted `Juan_Complete_Job_Platform` directory.
 4. Run:
 
 ```powershell
@@ -23,7 +23,7 @@ Open http://localhost:8501 if the browser does not open automatically.
 2. Open **Application Studio**. It automatically detects the latest bot CSV; you can instead upload a CSV manually.
 3. Upload your **verified, structured master resume JSON** (use `master_resume.example.json` as a format reference). Do not assume the example resume describes your actual employment history.
 4. Enter an OpenAI API key (or set `OPENAI_API_KEY` in your environment). Choose a supported model, select jobs, paste full descriptions when a job site blocks extraction, and generate.
-5. Download `application_packages.zip`. Each successfully processed job gets its own folder with `A_resume.docx`, `A_resume.pdf`, `A_cover_letter.docx`, and `job_description.txt`.
+5. Download `application_packages.zip`. Each successfully processed job gets its own folder with `Juan_Paolo_Ramos_resume.docx`, `Juan_Paolo_Ramos_resume.pdf`, `Juan_Paolo_Ramos_cover_letter.docx`, and `job_description.txt`.
 
 ## Constraints and safety
 
@@ -38,3 +38,11 @@ Open http://localhost:8501 if the browser does not open automatically.
 ## Offline checks
 
 Run `py -m pytest tests -q` to check configuration, filename conventions, and CSV normalization without contacting job websites or OpenAI.
+
+## NEW: Free offline application tailoring
+
+The Application Studio sidebar defaults to **Free offline (no API key)**. No OpenAI billing is needed. Upload the master resume JSON, load a job CSV, select jobs, and click **Generate application packages**. Each successful job produces `Juan_Paolo_Ramos_resume.docx`, `Juan_Paolo_Ramos_resume.pdf`, and `Juan_Paolo_Ramos_cover_letter.docx`, plus the source job description and matched-skills list.
+
+**Important:** The offline mode is deterministic keyword matching, not a local language model. It reorders existing resume bullet points by relevance, promotes matching skills from your active skills array, and builds a cover letter from existing factual experience. It does not invent experience. If a job site blocks fetching (403 or JavaScript-only), expand **Paste descriptions for blocked or JavaScript-only job pages** and paste the full job description manually. Internet access is required for the job bot and automatic JD retrieval; only tailoring/document generation is offline. If no job succeeded, the download button is hidden.
+
+The optional paid OpenAI mode remains available for richer rewriting. Keep the Streamlit app local; do not deploy publicly without appropriate security hardening.

@@ -1,0 +1,122 @@
+{
+  "target_daily_leads": 100,
+  "max_age_days": 14,
+  "priority_countries": [
+    "australia",
+    "united kingdom",
+    "uk",
+    "germany",
+    "netherlands",
+    "sweden",
+    "denmark",
+    "norway",
+    "finland",
+    "ireland",
+    "france",
+    "spain",
+    "portugal",
+    "poland",
+    "estonia",
+    "switzerland",
+    "austria",
+    "belgium"
+  ],
+  "blocked_location_phrases": [
+    "us only",
+    "usa only",
+    "united states only",
+    "canada only",
+    "must reside in the us",
+    "must be based in the us",
+    "remote - us",
+    "remote, us",
+    "europe only",
+    "eu only",
+    "uk only",
+    "australia only",
+    "must reside in australia",
+    "must be based in australia",
+    "within the eu",
+    "within europe"
+  ],
+  "greenhouse_boards": [],
+  "ashby_boards": [],
+  "excluded_companies": [
+    "lemon.io"
+  ],
+  "lever_boards": [],
+  "disabled_sources": [],
+  "search_profile": {
+    "total_development_years": 7,
+    "bubble_years": 3,
+    "shopify_ecommerce_years": 5,
+    "ai_annotation_months": 2,
+    "verified_skills": [
+      "full stack development",
+      "Shopify",
+      "eCommerce",
+      "Bubble",
+      "data annotation",
+      "data labeling",
+      "categorization",
+      "coding-related AI evaluation"
+    ],
+    "unverified_do_not_assume": [
+      "Java",
+      "Spring Boot",
+      "NestJS",
+      "Prisma ORM",
+      "Salesforce",
+      "React",
+      "Node.js",
+      "Python",
+      "LLM engineering"
+    ]
+  },
+  "role_priorities": {
+    "software_development": 80,
+    "ai_training_annotation": 20
+  },
+  "role_categories": {
+    "software_development": {
+      "title_patterns": [
+        "full[ -]?stack",
+        "front[ -]?end",
+        "back[ -]?end",
+        "software (?:engineer|developer)",
+        "web (?:engineer|developer)",
+        "shopify",
+        "e[ -]?commerce",
+        "bubble(?:\\\\.io)?",
+        "no[ -]?code",
+        "low[ -]?code",
+        "commerce (?:engineer|developer)",
+        "web application developer",
+        "application developer"
+      ],
+      "exclude_title_patterns": [
+        "wordpress content writer"
+      ]
+    },
+    "ai_training_annotation": {
+      "title_patterns": [
+        "data annotat",
+        "data label",
+        "data categoriz",
+        "ai train",
+        "ai evaluat",
+        "ai response evaluat",
+        "coding evaluat",
+        "coding ai trainer",
+        "llm evaluat",
+        "annotation quality",
+        "ai data quality"
+      ],
+      "exclude_title_patterns": [
+        "machine learning engineer",
+        "ai research scientist"
+      ]
+    }
+  },
+  "strict_eligibility_only": false
+}
